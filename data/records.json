@@ -1,0 +1,73 @@
+{
+  "leaves": [
+    {
+      "leave_id": "L001",
+      "user_id": "U001",
+      "name": "Alex Rivera",
+      "type": "medical",
+      "start_date": "2026-07-20",
+      "end_date": "2026-07-22",
+      "reason": "Fever and bed rest",
+      "status": "pending"
+    },
+    {
+      "leave_id": "L002",
+      "user_id": "U001",
+      "name": "Alex Rivera",
+      "type": "medical",
+      "start_date": "2026-07-04",
+      "end_date": "2026-07-09",
+      "reason": "fever",
+      "status": "pending"
+    },
+    {
+      "leave_id": "L003",
+      "user_id": "u001",
+      "name": "alexa rivera",
+      "type": "duty",
+      "start_date": "2024-06-05",
+      "end_date": "2024-07-08",
+      "reason": "attending a summer school program",
+      "status": "pending"
+    },
+    {
+      "leave_id": "L004",
+      "user_id": "u001",
+      "name": "alex rivera",
+      "type": "duty leave",
+      "start_date": "2023-07-05",
+      "end_date": "2023-07-10",
+      "reason": "attending a summer school program at Telkom University",
+      "status": "pending"
+    },
+    {
+      "leave_id": "L005",
+      "user_id": "u001",
+      "name": "Alex Rivera",
+      "type": "medical leave",
+      "start_date": "2023-06-04",
+      "end_date": "2023-06-07",
+      "reason": "suffering from fever",
+      "status": "pending"
+    }
+  ],
+  "exam_seating": {
+    "U001": {
+      "Data Structures": {
+        "block": "Block A",
+        "room": "Room 204",
+        "seat": "Seat 12"
+      }
+    }
+  },
+  "placements": {
+    "TechCorp": {
+      "min_cgpa": 7.5,
+      "allowed_branches": [
+        "Computer Science (UG-2)",
+        "Electronics (UG-3)"
+      ],
+      "max_backlogs": 0
+    }
+  }
+}
