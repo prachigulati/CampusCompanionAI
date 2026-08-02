@@ -69,6 +69,26 @@
       "end_date": "2026-07-19",
       "reason": "Fever",
       "status": "pending"
+    },
+    {
+      "leave_id": "L008",
+      "user_id": "002",
+      "name": "Prachi",
+      "type": "medical",
+      "start_date": "2023-07-10",
+      "end_date": "2023-07-15",
+      "reason": "suffering from fever",
+      "status": "pending"
+    },
+    {
+      "leave_id": "L009",
+      "user_id": "007",
+      "name": "Prachi",
+      "type": "duty",
+      "start_date": "2023-06-05",
+      "end_date": "2023-07-12",
+      "reason": "gone for a Summer School program",
+      "status": "pending"
     }
   ],
   "exam_seating": {
