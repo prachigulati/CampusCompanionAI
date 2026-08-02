@@ -4,6 +4,7 @@ from fastapi import FastAPI, Header, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+from typing import Optional
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage
 
@@ -22,12 +23,56 @@ def load_users():
             return json.load(f)
     return {}
 
+# Load records from data/records.json
+def load_records():
+    path = os.path.join("data", "records.json")
+    if os.path.exists(path):
+        with open(path, "r") as f:
+            return json.load(f)
+    return {"leave_requests": []}
+
+def save_records(data):
+    path = os.path.join("data", "records.json")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(data, f, indent=4)
+
 class ChatRequest(BaseModel):
     message: str
+
+class LeaveRequestPayload(BaseModel):
+    type: str
+    subject: str
+    dateRange: str
+    totalDays: int
+    document: Optional[str] = "document.pdf"
 
 @app.get("/api/users")
 def get_users():
     return load_users()
+
+@app.get("/api/leaves")
+def get_leaves():
+    records = load_records()
+    return records.get("leave_requests", [])
+
+@app.post("/api/leaves")
+def create_leave(req: LeaveRequestPayload):
+    records = load_records()
+    new_req = {
+        "id": len(records.get("leave_requests", [])) + 1,
+        "type": req.type,
+        "subject": req.subject,
+        "dateRange": req.dateRange,
+        "totalDays": req.totalDays,
+        "status": "Pending",
+        "credited": False,
+        "document": req.document
+    }
+    records.setdefault("leave_requests", []).append(new_req)
+    save_records(records)
+    return {"status": "success", "data": new_req}
+
 @app.post("/api/chat")
 def chat_endpoint(req: ChatRequest, x_user_id: str = Header(default="U001")):
     users = load_users()
@@ -47,7 +92,6 @@ def chat_endpoint(req: ChatRequest, x_user_id: str = Header(default="U001")):
     }
 
     try:
-        # Run the agent graph with a thread configuration for persistent memory
         config = {"configurable": {"thread_id": x_user_id}}
         result = app_graph.invoke(initial_state, config=config)
         final_message = result["messages"][-1]

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   LayoutGrid, 
   Calendar as CalendarIcon, 
@@ -41,7 +41,9 @@ import {
   CheckCircle,
   XCircle,
   Upload,
-  X
+  X,
+  Send,
+  Bot
 } from 'lucide-react';
 
 export default function App() {
@@ -121,6 +123,40 @@ export default function App() {
     setIsLeaveModalOpen(false);
     setLeaveForm({ type: 'Medical Leave', reason: '', startDate: '', endDate: '', fileName: '' });
     alert('Leave application submitted successfully for HOD approval!');
+  };
+
+  // AI Chat States
+  const [chatMessages, setChatMessages] = useState([
+    { sender: 'bot', text: 'Hello Ava! I am your Campus Companion AI. Ask me about your attendance, policies, or leave balances.' }
+  ]);
+  const [chatInput, setChatInput] = useState('');
+  const [isChatLoading, setIsChatLoading] = useState(false);
+
+  const handleSendChatMessage = async (e) => {
+    e.preventDefault();
+    if (!chatInput.trim() || isChatLoading) return;
+
+    const userMsg = chatInput.trim();
+    setChatMessages(prev => [...prev, { sender: 'user', text: userMsg }]);
+    setChatInput('');
+    setIsChatLoading(true);
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'x-user-id': 'U001' // Ava Richardson's ID
+        },
+        body: JSON.stringify({ message: userMsg })
+      });
+      const data = await res.json();
+      setChatMessages(prev => [...prev, { sender: 'bot', text: data.reply || 'No response from agent.' }]);
+    } catch (err) {
+      setChatMessages(prev => [...prev, { sender: 'bot', text: 'Error connecting to AI backend.' }]);
+    } finally {
+      setIsChatLoading(false);
+    }
   };
 
   // Password Change Form State
@@ -509,9 +545,9 @@ export default function App() {
             >
               <div className="flex items-center gap-3">
                 <MessageSquare className="w-4 h-4 shrink-0" />
-                <span>Chats</span>
+                <span>AI Assistant</span>
               </div>
-              <span className="bg-black text-white text-[11px] font-semibold px-2 py-0.5 rounded-full">4</span>
+              <span className="bg-black text-white text-[10px] font-bold px-2 py-0.5 rounded-full">AI</span>
             </button>
 
             <button 
@@ -1131,6 +1167,54 @@ export default function App() {
             </div>
 
           </div>
+        ) : activeNav === 'chats' ? (
+          
+          /* CHAT INTERVIEW / AI ASSISTANT TAB */
+          <div className="w-full h-[calc(100vh-140px)] flex flex-col bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+            <div className="p-4 bg-slate-900 text-white flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#E0F780] text-slate-900 flex items-center justify-center font-bold">
+                  <Bot className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-sm">Campus Companion AI</h3>
+                  <p className="text-[10px] text-emerald-400 font-medium">Online • Connected to University Policy RAG & Tools</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Chat Messages */}
+            <div className="flex-1 p-6 overflow-y-auto space-y-4 bg-[#F8F9FA]">
+              {chatMessages.map((msg, idx) => (
+                <div key={idx} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-xl p-4 rounded-2xl text-xs leading-relaxed ${msg.sender === 'user' ? 'bg-black text-white rounded-br-none' : 'bg-white text-slate-800 border border-gray-200/80 shadow-sm rounded-bl-none'}`}>
+                    {msg.text}
+                  </div>
+                </div>
+              ))}
+              {isChatLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-white text-slate-400 p-3 rounded-2xl text-xs border border-gray-200 animate-pulse">
+                    Thinking & querying policy database...
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Chat Input */}
+            <form onSubmit={handleSendChatMessage} className="p-4 bg-white border-t border-gray-100 flex items-center gap-3">
+              <input 
+                type="text" 
+                value={chatInput} 
+                onChange={(e) => setChatInput(e.target.value)} 
+                placeholder="Ask about placement CGPA criteria, duty leave, or attendance..." 
+                className="flex-1 bg-gray-50 border border-gray-200 rounded-full px-4 py-3 text-xs text-slate-800 focus:outline-none focus:border-slate-400"
+              />
+              <button type="submit" disabled={isChatLoading} className="p-3 bg-black text-white rounded-full hover:bg-slate-800 transition">
+                <Send className="w-4 h-4" />
+              </button>
+            </form>
+          </div>
         ) : activeNav === 'profile' ? (
           
           /* 5. PROFILE VIEW */
@@ -1478,7 +1562,7 @@ export default function App() {
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">Upload Proof (Medical Cert / Event Pass)</label>
-                <div className="border-2 border-dashed border-gray-200 rounded-2xl p-4 text-center hover:bg-gray-50/50 transition cursor-pointer">
+                <div className="border-2 border-dashed border-gray-200 rounded-2xl p-4 text-center hover:bg-gray-50/50 transition cursor-pointer relative">
                   <Upload className="w-5 h-5 mx-auto text-slate-400 mb-1" />
                   <p className="text-xs font-semibold text-slate-600">Click to upload document (PDF/PNG)</p>
                   <p className="text-[10px] text-slate-400 mt-0.5">Max size 5MB</p>

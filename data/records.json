@@ -49,6 +49,26 @@
       "end_date": "2023-06-07",
       "reason": "suffering from fever",
       "status": "pending"
+    },
+    {
+      "leave_id": "L006",
+      "user_id": "001",
+      "name": "Ava",
+      "type": "Duty Leave",
+      "start_date": "2026-04-03",
+      "end_date": "2026-04-10",
+      "reason": "Attending a tech talk",
+      "status": "pending"
+    },
+    {
+      "leave_id": "L007",
+      "user_id": "001",
+      "name": "Ava",
+      "type": "Medical Leave",
+      "start_date": "2026-07-15",
+      "end_date": "2026-07-19",
+      "reason": "Fever",
+      "status": "pending"
     }
   ],
   "exam_seating": {
