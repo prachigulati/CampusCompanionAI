@@ -55,3 +55,33 @@ def submit_leave_request(user_id: str, user_name: str, leave_type: str, start_da
         json.dump(data, f, indent=2)
         
     return f"Leave request successfully submitted with ID {new_id}. Status is currently 'pending'."
+
+
+
+from langchain_core.tools import tool
+import os
+
+@tool
+def search_registrar_guidelines(query: str) -> str:
+    """Search through official university registrar guidelines, leave policies, placement rules, and exam instructions.
+    Use this when students ask about medical leaves, duty leaves, Tier-1 placement CGPA cutoffs, attendance requirements, or hall tickets.
+    
+    Args:
+        query: The specific topic or keyword to search for (e.g. 'medical leave', 'CGPA cutoff', 'attendance').
+    """
+    path = os.path.join("docs", "policies", "registrar_guidelines.md")
+    if not os.path.exists(path):
+        return "Registrar guidelines document not found."
+    
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read()
+        
+    # Simple search filter to find relevant sections based on query keywords
+    lines = content.split("\n")
+    relevant_lines = [line for line in lines if query.lower() in line.lower()]
+    
+    if relevant_lines:
+        return "\n".join(relevant_lines)
+    
+    # Fallback to returning the whole document if no specific keyword matches
+    return content

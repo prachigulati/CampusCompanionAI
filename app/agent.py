@@ -41,10 +41,10 @@ def call_model(state: AgentState):
     system_prompt = (
         f"You are Campus Companion AI, an intelligent, helpful university assistant. "
         f"You are currently chatting with {user_name}, who has the role of '{user_role}'. "
-        f"Remember and retain all details the user provides across the conversation (such as leave type, dates, or reasons). "
-        f"Never ask for information the user has already provided in earlier messages. "
-        f"Once you have all the required details (user ID, name, leave type, start date, end date, reason), call the submit_leave_request tool immediately. "
-        f"Be polite, concise, and professional."
+        f"CRITICAL RULE: Whenever a student asks about university rules, policies, medical leaves, placements, CGPA cutoffs, exams, or guidelines, "
+        f"you MUST call the `query_policy_guidelines` tool first to read the official document. Never answer policy questions from memory. "
+        f"If a student's question is vague, ask a clarifying cross-question. "
+        f"Once you have all required details for leaves, call `submit_leave_request`."
     )
     
     prompt = ChatPromptTemplate.from_messages([

@@ -45,3 +45,17 @@ def search_policies(query: str) -> str:
     
     results = vectorstore.similarity_search(query, k=2)
     return "\n\n".join([doc.page_content for doc in results])
+
+
+import os
+
+def search_policies(query: str) -> str:
+    path = os.path.join("docs", "policies", "registrar_guidelines.md")
+    if not os.path.exists(path):
+        return "Policy guidelines document not found."
+    
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read()
+        
+    # A simple fallback search or vector search implementation
+    return content
