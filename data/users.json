@@ -1,20 +1,31 @@
 {
-    "U001": {
-    "name": "Alex Rivera",
-    "role": "student",
-    "department": "Computer Science (UG-2)",
-    "email": "alex.rivera@university.edu"
-},
-    "U002": {
-    "name": "Priya Sharma",
-    "role": "student",
-    "department": "Electronics (UG-3)",
-    "email": "priya.sharma@university.edu"
-},
-    "U003": {
-    "name": "Dr. Sarah Jenkins",
-    "role": "admin",
-    "department": "Registrar Office",
-    "email": "sarah.jenkins@university.edu"
-}
+    "users": [
+        {
+            "name": "Alex Rivera",
+            "role": "student",
+            "department": "Computer Science (UG-2)",
+            "email": "alex.rivera@university.edu"
+        },
+        {
+            "name": "Priya Sharma",
+            "role": "student",
+            "department": "Electronics (UG-3)",
+            "email": "priya.sharma@university.edu"
+        },
+        {
+            "name": "Dr. Sarah Jenkins",
+            "role": "admin",
+            "department": "Registrar Office",
+            "email": "sarah.jenkins@university.edu"
+        },
+        {
+            "user_id": "prachi",
+            "name": "prachigulati",
+            "email": "prachi@gmail.com",
+            "password": "prachi",
+            "role": "student",
+            "department": "Engineering",
+            "cgpa": 9.0
+        }
+    ]
 }

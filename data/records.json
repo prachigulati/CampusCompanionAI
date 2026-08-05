@@ -89,6 +89,16 @@
       "end_date": "2023-07-12",
       "reason": "gone for a Summer School program",
       "status": "pending"
+    },
+    {
+      "leave_id": "L0010",
+      "user_id": "U001",
+      "name": "Priya Sharma",
+      "type": "medical",
+      "start_date": "2023-08-01",
+      "end_date": "2023-08-04",
+      "reason": "Fever",
+      "status": "pending"
     }
   ],
   "exam_seating": {
@@ -109,5 +119,38 @@
       ],
       "max_backlogs": 0
     }
-  }
+  },
+  "attendance": {
+    "STU001": [
+      {
+        "subject": "Data Structures & Algorithms",
+        "attended": 28,
+        "total": 32,
+        "percentage": 87.5
+      },
+      {
+        "subject": "Artificial Intelligence & ML",
+        "attended": 24,
+        "total": 30,
+        "percentage": 80.0
+      },
+      {
+        "subject": "Database Management Systems",
+        "attended": 25,
+        "total": 28,
+        "percentage": 89.2
+      }
+    ]
+  },
+  "leave_requests": [],
+  "timeline_documents": [
+    {
+      "doc_id": "DOC001",
+      "title": "Mid-Term Examination Guidelines 2026",
+      "category": "Exam Notice",
+      "uploaded_by": "Dr. Sharma",
+      "date": "2026-08-04",
+      "content": "Mid-term exams will commence from September 10, 2026. Hall tickets are mandatory."
+    }
+  ]
 }
