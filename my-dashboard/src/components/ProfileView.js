@@ -1,7 +1,12 @@
 import React from 'react';
 import { ShieldCheck, Key, Laptop, LogOut, Camera, CheckCircle2 } from 'lucide-react';
 
-export default function ProfileView({ passwordForm, setPasswordForm, handlePasswordChange }) {
+export default function ProfileView({ passwordForm, setPasswordForm, handlePasswordChange, onLogout }) {
+  // Retrieve logged-in user profile from localStorage if available
+  const savedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+  const userName = savedUser.name || 'Ava Richardson';
+  const userEmail = savedUser.email || 'ava.richardson@university.edu';
+
   return (
     <div className="w-full">
       <div className="mb-6">
@@ -15,7 +20,7 @@ export default function ProfileView({ passwordForm, setPasswordForm, handlePassw
             <div className="relative w-24 h-24 mx-auto mb-4">
               <img 
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" 
-                alt="Ava Richardson" 
+                alt={userName} 
                 className="w-full h-full rounded-full object-cover border-4 border-slate-50 shadow-md"
               />
               <button className="absolute bottom-0 right-0 p-2 bg-black text-white rounded-full shadow-md hover:bg-slate-800 transition">
@@ -23,8 +28,8 @@ export default function ProfileView({ passwordForm, setPasswordForm, handlePassw
               </button>
             </div>
 
-            <h2 className="text-xl font-bold text-slate-900">Ava Richardson</h2>
-            <p className="text-xs text-slate-500 font-medium">ava.richardson@university.edu</p>
+            <h2 className="text-xl font-bold text-slate-900">{userName}</h2>
+            <p className="text-xs text-slate-500 font-medium">{userEmail}</p>
 
             <div className="mt-4 inline-flex items-center gap-1.5 bg-[#E0F780] text-slate-900 px-3 py-1 rounded-full text-xs font-bold">
               <ShieldCheck className="w-3.5 h-3.5" />
@@ -37,19 +42,15 @@ export default function ProfileView({ passwordForm, setPasswordForm, handlePassw
             <div className="space-y-3 text-xs">
               <div className="flex justify-between py-1 border-b border-gray-50">
                 <span className="text-slate-400 font-medium">Roll Number</span>
-                <span className="font-bold text-slate-800">2023-CS-089</span>
+                <span className="font-bold text-slate-800">{savedUser.user_id || '2023-CS-089'}</span>
               </div>
               <div className="flex justify-between py-1 border-b border-gray-50">
                 <span className="text-slate-400 font-medium">Department</span>
-                <span className="font-bold text-slate-800">Computer Science & AI</span>
-              </div>
-              <div className="flex justify-between py-1 border-b border-gray-50">
-                <span className="text-slate-400 font-medium">Batch</span>
-                <span className="font-bold text-slate-800">2023 - 2027</span>
+                <span className="font-bold text-slate-800">{savedUser.department || 'Computer Science & AI'}</span>
               </div>
               <div className="flex justify-between py-1">
-                <span className="text-slate-400 font-medium">Semester</span>
-                <span className="font-bold text-slate-800">Semester 6</span>
+                <span className="text-slate-400 font-medium">CGPA</span>
+                <span className="font-bold text-slate-800">{savedUser.cgpa || '3.84'}</span>
               </div>
             </div>
           </div>
@@ -112,28 +113,6 @@ export default function ProfileView({ passwordForm, setPasswordForm, handlePassw
             </form>
           </div>
 
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-            <h3 className="font-bold text-slate-900 text-sm mb-4 flex items-center gap-2">
-              <Laptop className="w-4 h-4 text-slate-500" />
-              Active Session
-            </h3>
-
-            <div className="flex items-center justify-between p-3.5 bg-gray-50 rounded-2xl border border-gray-100">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-emerald-100 text-emerald-700 rounded-xl">
-                  <CheckCircle2 className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-800">MacBook Pro — Chrome Browser</p>
-                  <p className="text-[10px] text-slate-400">Current Session • New Delhi, India</p>
-                </div>
-              </div>
-              <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                Active Now
-              </span>
-            </div>
-          </div>
-
           <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex items-center justify-between">
             <div>
               <h3 className="font-bold text-slate-900 text-sm">Account Action</h3>
@@ -141,8 +120,8 @@ export default function ProfileView({ passwordForm, setPasswordForm, handlePassw
             </div>
 
             <button 
-              onClick={() => alert('Logged out successfully.')}
-              className="flex items-center gap-2 px-5 py-2.5 bg-rose-50 text-rose-600 hover:bg-rose-100 font-bold text-xs rounded-full border border-rose-200/60 transition"
+              onClick={onLogout}
+              className="flex items-center gap-2 px-5 py-2.5 bg-rose-50 text-rose-600 hover:bg-rose-100 font-bold text-xs rounded-full border border-rose-200/60 transition cursor-pointer"
             >
               <LogOut className="w-4 h-4" />
               Logout

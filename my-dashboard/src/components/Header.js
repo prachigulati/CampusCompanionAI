@@ -2,6 +2,10 @@ import React from 'react';
 import { Search, Bell, ChevronDown, PanelLeft } from 'lucide-react';
 
 export default function Header({ isSidebarOpen, setIsSidebarOpen, setActiveNav }) {
+  // Retrieve the logged-in user from localStorage, falling back to 'Ava Richardson' if not found
+  const savedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+  const userName = savedUser.name || 'Ava Richardson';
+
   return (
     <header className="flex items-center justify-between mb-8 w-full">
       <div className="flex items-center gap-4">
@@ -38,10 +42,10 @@ export default function Header({ isSidebarOpen, setIsSidebarOpen, setActiveNav }
         >
           <img 
             src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
-            alt="Ava Richardson" 
+            alt={userName} 
             className="w-7 h-7 rounded-full object-cover"
           />
-          <span className="text-xs font-semibold text-slate-800">Ava Richardson</span>
+          <span className="text-xs font-semibold text-slate-800">{userName}</span>
           <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
         </div>
       </div>

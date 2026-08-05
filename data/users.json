@@ -26,6 +26,24 @@
             "role": "student",
             "department": "Engineering",
             "cgpa": 9.0
+        },
+        {
+            "user_id": "U932",
+            "name": "Prachi",
+            "email": "prachii@gmail.com",
+            "password": "qwe",
+            "role": "student",
+            "department": "Computer Science & AI",
+            "cgpa": 3.84
+        },
+        {
+            "user_id": "U719",
+            "name": "TestUser",
+            "email": "testuser@gmail.com",
+            "password": "qwe",
+            "role": "student",
+            "department": "Computer Science & AI",
+            "cgpa": 3.84
         }
     ]
 }
