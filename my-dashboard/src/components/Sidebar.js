@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   LayoutGrid, Calendar as CalendarIcon, MessageSquare, 
-  PanelLeftClose, BookOpen, BarChart3, Clock, User 
+  PanelLeftClose, BookOpen, BarChart3, Clock, User, CheckSquare
 } from 'lucide-react';
 
 export default function Sidebar({ isSidebarOpen, setIsSidebarOpen, activeNav, setActiveNav }) {
@@ -72,6 +72,16 @@ export default function Sidebar({ isSidebarOpen, setIsSidebarOpen, activeNav, se
             <span>Schedule</span>
           </button>
 
+            <button 
+            onClick={() => setActiveNav('attendance')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-medium text-sm transition-all ${
+              activeNav === 'attendance' ? 'bg-[#E0F780] text-slate-900 shadow-sm' : 'text-slate-600 hover:bg-gray-100'
+            }`}
+          >
+            <CheckSquare className="w-4 h-4 shrink-0" />
+            <span>Attendance</span>
+          </button>
+          
           <button 
             onClick={() => setActiveNav('timeline')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl font-medium text-sm transition-all ${

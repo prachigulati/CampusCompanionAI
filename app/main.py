@@ -15,6 +15,18 @@ load_dotenv()
 
 app = FastAPI(title="Campus Companion AI")
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="Campus Companion AI")
+
+# Enable CORS for React frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins during development
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # Pydantic models for authentication and requests
 class LoginRequest(BaseModel):
     email: str
@@ -241,3 +253,15 @@ def add_timeline_doc(doc: TimelineDocPayload):
         f.write(f"\n\n### {doc.title} ({doc.category})\n{doc.content}\n")
 
     return {"status": "success", "data": new_doc}
+
+
+
+@app.get("/api/timetable")
+def get_timetable():
+    records = load_records()
+    return records.get("timetable", {})
+
+@app.get("/api/datewise-attendance")
+def get_datewise_attendance():
+    records = load_records()
+    return records.get("datewise_attendance", [])

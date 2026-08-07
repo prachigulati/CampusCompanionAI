@@ -591,6 +591,7 @@ import LeaveModal from './components/LeaveModal';
 import DashboardView from './components/DashboardView';
 import CoursesView from './components/CoursesView';
 import PerformanceView from './components/PerformanceView';
+import AttendanceView from './components/AttendanceView';
 import ScheduleView from './components/ScheduleView';
 import ChatView from './components/ChatView';
 import ProfileView from './components/ProfileView';
@@ -872,6 +873,7 @@ export default function App() {
         {activeNav === 'dashboard' && <DashboardView setActiveNav={setActiveNav} />}
         {activeNav === 'courses' && <CoursesView activeTab={activeTab} setActiveTab={setActiveTab} />}
         {activeNav === 'performance' && <PerformanceView selectedSemester={selectedSemester} setSelectedSemester={setSelectedSemester} />}
+        {activeNav === 'attendance' && <AttendanceView />}
         {activeNav === 'schedule' && <ScheduleView selectedDay={selectedDay} setSelectedDay={setSelectedDay} setIsLeaveModalOpen={setIsLeaveModalOpen} leaveRequests={leaveRequests} />}
         {activeNav === 'chats' && <ChatView 
           chatMessages={chatMessages} 
