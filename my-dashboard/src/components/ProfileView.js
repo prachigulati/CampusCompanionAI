@@ -1,56 +1,65 @@
 import React from 'react';
-import { ShieldCheck, Key, Laptop, LogOut, Camera, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Key, LogOut } from 'lucide-react';
 
 export default function ProfileView({ passwordForm, setPasswordForm, handlePasswordChange, onLogout }) {
-  // Retrieve logged-in user profile from localStorage if available
   const savedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-  const userName = savedUser.name || 'Ava Richardson';
-  const userEmail = savedUser.email || 'ava.richardson@university.edu';
+  const userName = savedUser.name || 'Prachi';
+  const userEmail = savedUser.email || 'prachi@campus.edu';
+  const userId = savedUser.user_id || 'U001';
+  const userRole = savedUser.role || 'student';
+  const userDepartment = savedUser.department || 'Engineering (AIML)';
+
+  // Generate user initials for the dynamic avatar
+  const getInitials = (name) => {
+    return name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .substring(0, 2);
+  };
+
+  const initials = getInitials(userName);
 
   return (
     <div className="w-full">
       <div className="mb-6">
-        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Student Profile</h1>
+        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">User Profile</h1>
         <p className="text-sm text-slate-500 mt-1">Manage your account details, academic information, and security options.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full">
         <div className="lg:col-span-5 space-y-6">
           <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 text-center relative">
-            <div className="relative w-24 h-24 mx-auto mb-4">
-              <img 
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" 
-                alt={userName} 
-                className="w-full h-full rounded-full object-cover border-4 border-slate-50 shadow-md"
-              />
-              <button className="absolute bottom-0 right-0 p-2 bg-black text-white rounded-full shadow-md hover:bg-slate-800 transition">
-                <Camera className="w-3.5 h-3.5" />
-              </button>
+            
+            {/* Dynamic Initials Avatar (No default static image) */}
+            <div className="relative w-24 h-24 mx-auto mb-4 flex items-center justify-center bg-[#E0F780] text-slate-900 font-black text-2xl rounded-full shadow-md border-4 border-slate-50">
+              {initials}
             </div>
 
             <h2 className="text-xl font-bold text-slate-900">{userName}</h2>
             <p className="text-xs text-slate-500 font-medium">{userEmail}</p>
 
-            <div className="mt-4 inline-flex items-center gap-1.5 bg-[#E0F780] text-slate-900 px-3 py-1 rounded-full text-xs font-bold">
+            <div className="mt-4 inline-flex items-center gap-1.5 bg-[#E0F780] text-slate-900 px-3 py-1 rounded-full text-xs font-bold capitalize">
               <ShieldCheck className="w-3.5 h-3.5" />
-              Active Student
+              Active {userRole}
             </div>
           </div>
 
           <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 space-y-4">
-            <h3 className="font-bold text-slate-900 text-sm border-b border-gray-100 pb-3">Academic Details</h3>
+            <h3 className="font-bold text-slate-900 text-sm border-b border-gray-100 pb-3">Account & Academic Details</h3>
             <div className="space-y-3 text-xs">
               <div className="flex justify-between py-1 border-b border-gray-50">
-                <span className="text-slate-400 font-medium">Roll Number</span>
-                <span className="font-bold text-slate-800">{savedUser.user_id || '2023-CS-089'}</span>
+                <span className="text-slate-400 font-medium">User ID</span>
+                <span className="font-bold text-slate-800 font-mono">{userId}</span>
               </div>
               <div className="flex justify-between py-1 border-b border-gray-50">
-                <span className="text-slate-400 font-medium">Department</span>
-                <span className="font-bold text-slate-800">{savedUser.department || 'Computer Science & AI'}</span>
+                <span className="text-slate-400 font-medium">Role</span>
+                <span className="font-bold text-slate-800 capitalize">{userRole}</span>
               </div>
               <div className="flex justify-between py-1">
-                <span className="text-slate-400 font-medium">CGPA</span>
-                <span className="font-bold text-slate-800">{savedUser.cgpa || '3.84'}</span>
+                <span className="text-slate-400 font-medium">Department</span>
+                <span className="font-bold text-slate-800">{userDepartment}</span>
               </div>
             </div>
           </div>
@@ -105,7 +114,7 @@ export default function ProfileView({ passwordForm, setPasswordForm, handlePassw
               <div className="pt-2">
                 <button 
                   type="submit" 
-                  className="px-5 py-2.5 bg-black text-white text-xs font-bold rounded-full hover:bg-slate-800 transition"
+                  className="px-5 py-2.5 bg-black text-white text-xs font-bold rounded-full hover:bg-slate-800 transition cursor-pointer"
                 >
                   Update Password
                 </button>

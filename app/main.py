@@ -3,6 +3,7 @@ import json
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 from dotenv import load_dotenv
@@ -15,18 +16,15 @@ load_dotenv()
 
 app = FastAPI(title="Campus Companion AI")
 
-from fastapi.middleware.cors import CORSMiddleware
-
-app = FastAPI(title="Campus Companion AI")
-
-# Enable CORS for React frontend
+# Enable CORS for React frontend connection
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins during development
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # Pydantic models for authentication and requests
 class LoginRequest(BaseModel):
     email: str
@@ -39,7 +37,6 @@ class RegisterRequest(BaseModel):
     password: str
     role: str  # "student" or "teacher"
     department: Optional[str] = "Engineering"
-    cgpa: Optional[float] = 0.0
 
 class ChatRequest(BaseModel):
     message: str
@@ -62,7 +59,6 @@ def load_users():
             data = json.loads(content)
             # If users.json is stored as a dictionary mapping user IDs or a list
             if isinstance(data, dict) and "users" in data:
-                # Convert list or map safely
                 if isinstance(data["users"], list):
                     return {u.get("user_id", f"U00{i}"): u for i, u in enumerate(data["users"])}
                 return data["users"]
@@ -131,6 +127,9 @@ def register(data: RegisterRequest):
         
     if any(u.get("email") == data.email for u in users):
         raise HTTPException(status_code=400, detail="Email already registered")
+        
+    if any(u.get("user_id") == data.user_id for u in users):
+        raise HTTPException(status_code=400, detail="User ID already exists")
         
     new_user = data.dict()
     users.append(new_user)
@@ -213,13 +212,11 @@ def serve_frontend():
             return f.read()
     return "<h1>Frontend index.html not found!</h1>"
 
-
 @app.get("/api/attendance/{user_id}")
 def get_attendance(user_id: str):
     records = load_records()
     attendance_data = records.get("attendance", {})
     return attendance_data.get(user_id, [])
-
 
 class TimelineDocPayload(BaseModel):
     title: str
@@ -253,8 +250,6 @@ def add_timeline_doc(doc: TimelineDocPayload):
         f.write(f"\n\n### {doc.title} ({doc.category})\n{doc.content}\n")
 
     return {"status": "success", "data": new_doc}
-
-
 
 @app.get("/api/timetable")
 def get_timetable():

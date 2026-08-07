@@ -109,6 +109,16 @@
       "end_date": "2024-06-08",
       "reason": "attending an AI bootcamp",
       "status": "pending"
+    },
+    {
+      "leave_id": "L0012",
+      "user_id": "U001",
+      "name": "Prachi Gulati",
+      "type": "medical",
+      "start_date": "2023-08-01",
+      "end_date": "2023-08-07",
+      "reason": "suffering from cold",
+      "status": "pending"
     }
   ],
   "exam_seating": {

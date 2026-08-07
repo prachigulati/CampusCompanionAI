@@ -1,49 +1,20 @@
 {
     "users": [
         {
-            "name": "Alex Rivera",
+            "user_id": "U001",
+            "name": "Prachi Gulati",
+            "email": "prachigulati@gmail.com",
+            "password": "12345",
             "role": "student",
-            "department": "Computer Science (UG-2)",
-            "email": "alex.rivera@university.edu"
+            "department": "Engineering (AIML)"
         },
         {
-            "name": "Priya Sharma",
-            "role": "student",
-            "department": "Electronics (UG-3)",
-            "email": "priya.sharma@university.edu"
-        },
-        {
-            "name": "Dr. Sarah Jenkins",
-            "role": "admin",
-            "department": "Registrar Office",
-            "email": "sarah.jenkins@university.edu"
-        },
-        {
-            "user_id": "prachi",
-            "name": "prachigulati",
-            "email": "prachi@gmail.com",
-            "password": "prachi",
-            "role": "student",
-            "department": "Engineering",
-            "cgpa": 9.0
-        },
-        {
-            "user_id": "U932",
-            "name": "Prachi",
-            "email": "prachii@gmail.com",
-            "password": "qwe",
-            "role": "student",
-            "department": "Computer Science & AI",
-            "cgpa": 3.84
-        },
-        {
-            "user_id": "U719",
-            "name": "TestUser",
-            "email": "testuser@gmail.com",
-            "password": "qwe",
-            "role": "student",
-            "department": "Computer Science & AI",
-            "cgpa": 3.84
+            "user_id": "T001",
+            "name": "Dr. Harjeet",
+            "email": "harjeet@gmail.com",
+            "password": "12345",
+            "role": "teacher",
+            "department": "Engineering (AIML)"
         }
     ]
 }

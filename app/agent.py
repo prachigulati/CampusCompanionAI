@@ -33,31 +33,6 @@ model = AzureChatOpenAI(
     temperature=0
 ).bind_tools(TOOLS)
 
-# def call_model(state: AgentState):
-#     messages = state["messages"]
-#     user_name = state["user_name"]
-#     user_role = state["user_role"]
-    
-#     system_prompt = (
-#         f"You are Campus Companion AI, an intelligent, helpful university assistant. "
-#         f"You are currently chatting with {user_name}, who has the role of '{user_role}'. "
-#         f"CRITICAL RULE: Whenever a student asks about university rules, policies, medical leaves, placements, CGPA cutoffs, exams, or guidelines, "
-#         f"you MUST call the `query_policy_guidelines` tool first to read the official document. Never answer policy questions from memory. "
-#         f"If a student's question is vague, ask a clarifying cross-question. "
-#         f"Once you have all required details for leaves, call `submit_leave_request`."
-#     )
-    
-#     prompt = ChatPromptTemplate.from_messages([
-#         ("system", system_prompt),
-#         MessagesPlaceholder(variable_name="messages"),
-#     ])
-    
-#     chained = prompt | model
-#     response = chained.invoke({"messages": messages})
-#     return {"messages": [response]}
-
-
-
 def call_model(state: AgentState):
     messages = state["messages"]
     user_name = state["user_name"]

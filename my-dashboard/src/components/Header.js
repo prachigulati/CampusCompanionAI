@@ -2,9 +2,21 @@ import React from 'react';
 import { Search, Bell, ChevronDown, PanelLeft } from 'lucide-react';
 
 export default function Header({ isSidebarOpen, setIsSidebarOpen, setActiveNav }) {
-  // Retrieve the logged-in user from localStorage, falling back to 'Ava Richardson' if not found
+  // Retrieve the logged-in user from localStorage, falling back to 'Prachi' if not found
   const savedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-  const userName = savedUser.name || 'Ava Richardson';
+  const userName = savedUser.name || 'Prachi';
+
+  // Generate user initials for the avatar badge
+  const getInitials = (name) => {
+    return name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .substring(0, 2);
+  };
+
+  const initials = getInitials(userName);
 
   return (
     <header className="flex items-center justify-between mb-8 w-full">
@@ -40,11 +52,10 @@ export default function Header({ isSidebarOpen, setIsSidebarOpen, setActiveNav }
           onClick={() => setActiveNav('profile')}
           className="flex items-center gap-3 bg-white p-1.5 pl-2 pr-3 rounded-full border border-gray-200 shadow-sm cursor-pointer hover:bg-gray-50 transition"
         >
-          <img 
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
-            alt={userName} 
-            className="w-7 h-7 rounded-full object-cover"
-          />
+          {/* Dynamic Initials Avatar */}
+          <div className="w-7 h-7 bg-[#E0F780] text-slate-900 rounded-full flex items-center justify-center font-bold text-xs shadow-2xs">
+            {initials}
+          </div>
           <span className="text-xs font-semibold text-slate-800">{userName}</span>
           <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
         </div>
