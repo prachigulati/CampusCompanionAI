@@ -1,0 +1,571 @@
+{
+"attendance": [
+{
+    "user_id": "U001",
+    "name": "Prachi Gulati",
+    "records": [
+    {
+        "date": "August 3, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "Lab-2",
+        "status": "Present"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+
+    {
+        "date": "August 4, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+
+    {
+        "date": "August 5, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "Lab-3",
+        "status": "Present"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+
+    {
+        "date": "August 6, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    }
+    ]
+},
+
+{
+    "user_id": "U002",
+    "name": "Rahul Sharma",
+    "records": [
+    {
+        "date": "August 3, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "Lab-3",
+        "status": "Present"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+
+    {
+        "date": "August 5, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "Lab-3",
+        "status": "Present"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+
+    {
+        "date": "August 6, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    }
+    ]
+},
+
+{
+    "user_id": "U003",
+    "name": "Ananya Verma",
+    "records": [
+    {
+        "date": "August 3, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "Lab-3",
+        "status": "Absent"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 3, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 4, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+
+    {
+        "date": "August 5, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "Lab-3",
+        "status": "Present"
+    },
+    {
+        "date": "August 5, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+
+    {
+        "date": "August 6, 2026",
+        "time": "09:00 AM - 10:00 AM",
+        "code": "AIML-301",
+        "subject": "Deep Learning & Neural Networks",
+        "teacher": "Dr. Vikas Sharma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "10:00 AM - 11:00 AM",
+        "code": "AIML-302",
+        "subject": "Natural Language Processing",
+        "teacher": "Dr. Anuj Verma",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "11:15 AM - 12:15 PM",
+        "code": "AIML-303",
+        "subject": "Big Data Analytics",
+        "teacher": "Prof. Neelam Gupta",
+        "room": "LT-201",
+        "status": "Present"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "02:00 PM - 03:00 PM",
+        "code": "CSE-304",
+        "subject": "Cloud Computing & DevOps",
+        "teacher": "Dr. Rajesh Rao",
+        "room": "LT-201",
+        "status": "Absent"
+    },
+    {
+        "date": "August 6, 2026",
+        "time": "03:00 PM - 04:00 PM",
+        "code": "AIML-305",
+        "subject": "AI Ethics & Governance",
+        "teacher": "Dr. Tanish Mehta",
+        "room": "LT-201",
+        "status": "Present"
+    }
+    ]
+}
+]
+}

@@ -1,89 +1,39 @@
 import React, { useState, useEffect } from "react";
 
 export default function AttendanceView() {
-  const [attendanceData, setAttendanceData] = useState([]);
+  const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [animateRings, setAnimateRings] = useState(false);
 
+  // Retrieve logged-in user profile from localStorage dynamically
+  const savedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+  const userId = savedUser.user_id || 'U001';
+
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/attendance/STU001")
+    console.log("Fetching attendance analytics for user_id:", userId);
+    fetch(`http://127.0.0.1:8000/api/attendance/${userId}`)
       .then((res) => res.json())
       .then((data) => {
-        setAttendanceData(data || []);
+        console.log("Attendance API Response:", data);
+        setUserData(data || { subjects: [] });
         setLoading(false);
-        // Trigger ring animation shortly after load
         setTimeout(() => setAnimateRings(true), 100);
       })
       .catch((err) => {
         console.error("Error fetching attendance records:", err);
         setLoading(false);
       });
-  }, []);
+  }, [userId]);
 
   if (loading) return <div className="p-8 text-gray-400 text-center font-medium">Loading attendance analytics...</div>;
 
-  const detailedRecords = [
-    {
-      code: "AIML-301",
-      name: "Deep Learning & Neural Networks",
-      teacher: "Dr. Sharma",
-      dateRange: "Aug 01, 2026 - Aug 07, 2026",
-      delivered: 12,
-      attended: 10,
-      absent: 1,
-      dl: 1,
-      ml: 0,
-      percentage: 83.3
-    },
-    {
-      code: "AIML-302",
-      name: "Natural Language Processing",
-      teacher: "Dr. Verma",
-      dateRange: "Aug 01, 2026 - Aug 07, 2026",
-      delivered: 10,
-      attended: 9,
-      absent: 1,
-      dl: 0,
-      ml: 0,
-      percentage: 90.0
-    },
-    {
-      code: "AIML-303",
-      name: "Big Data Analytics",
-      teacher: "Prof. Gupta",
-      dateRange: "Aug 01, 2026 - Aug 07, 2026",
-      delivered: 11,
-      attended: 8,
-      absent: 2,
-      dl: 0,
-      ml: 1,
-      percentage: 72.7
-    },
-    {
-      code: "CSE-304",
-      name: "Cloud Computing & DevOps",
-      teacher: "Dr. Rao",
-      dateRange: "Aug 01, 2026 - Aug 07, 2026",
-      delivered: 9,
-      attended: 9,
-      absent: 0,
-      dl: 0,
-      ml: 0,
-      percentage: 100.0
-    },
-    {
-      code: "AIML-305",
-      name: "AI Ethics & Governance",
-      teacher: "Dr. Mehta",
-      dateRange: "Aug 01, 2026 - Aug 07, 2026",
-      delivered: 8,
-      attended: 7,
-      absent: 1,
-      dl: 0,
-      ml: 0,
-      percentage: 87.5
-    }
-  ];
+  const subjects = userData?.subjects || [];
+
+  // Calculate summary stats dynamically from user subjects
+  const totalDelivered = subjects.reduce((acc, curr) => acc + (curr.total || 0), 0);
+  const totalAttended = subjects.reduce((acc, curr) => acc + (curr.attended || 0), 0);
+  const totalAbsences = totalDelivered - totalAttended;
+  const overallPercentage = totalDelivered > 0 ? ((totalAttended / totalDelivered) * 100).toFixed(1) : 0;
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto p-4 bg-[#F8FAF8] min-h-screen">
@@ -95,7 +45,7 @@ export default function AttendanceView() {
           </div>
           <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Attendance Dashboard</h1>
           <p className="text-sm text-gray-500 mt-1">
-            Interactive animated ring metrics tracking lecture distribution, leaves, and subject performance.
+            Viewing records for <span className="font-semibold text-slate-800">{userData?.name || savedUser.name || 'Student'}</span> ({userId}).
           </p>
         </div>
       </div>
@@ -104,22 +54,26 @@ export default function AttendanceView() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-white p-5 rounded-3xl shadow-sm border border-emerald-50">
           <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">Overall Percentage</p>
-          <p className="text-3xl font-extrabold text-emerald-600 mt-2">86.7%</p>
-          <span className="text-[10px] bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full font-bold mt-2 inline-block">Safe Zone (&gt;75%)</span>
+          <p className="text-3xl font-extrabold text-emerald-600 mt-2">{overallPercentage}%</p>
+          <span className={`text-[10px] px-2.5 py-0.5 rounded-full font-bold mt-2 inline-block ${
+            overallPercentage >= 75 ? "bg-emerald-50 text-emerald-700" : "bg-rose-50 text-rose-700"
+          }`}>
+            {overallPercentage >= 75 ? "Safe Zone (>75%)" : "Warning Zone (<75%)"}
+          </span>
         </div>
         <div className="bg-white p-5 rounded-3xl shadow-sm border border-emerald-50">
           <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">Total Delivered</p>
-          <p className="text-3xl font-extrabold text-gray-900 mt-2">50</p>
-          <span className="text-[10px] text-gray-400 mt-2 inline-block">Across 5 subjects</span>
+          <p className="text-3xl font-extrabold text-gray-900 mt-2">{totalDelivered}</p>
+          <span className="text-[10px] text-gray-400 mt-2 inline-block">Across {subjects.length} subjects</span>
         </div>
         <div className="bg-white p-5 rounded-3xl shadow-sm border border-emerald-50">
           <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">Total Attended</p>
-          <p className="text-3xl font-extrabold text-emerald-600 mt-2">43</p>
+          <p className="text-3xl font-extrabold text-emerald-600 mt-2">{totalAttended}</p>
           <span className="text-[10px] text-emerald-600 mt-2 inline-block">Includes validated leaves</span>
         </div>
         <div className="bg-white p-5 rounded-3xl shadow-sm border border-emerald-50">
           <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">Total Absences</p>
-          <p className="text-3xl font-extrabold text-rose-500 mt-2">5</p>
+          <p className="text-3xl font-extrabold text-rose-500 mt-2">{totalAbsences}</p>
           <span className="text-[10px] text-rose-500 mt-2 inline-block">Requires attention</span>
         </div>
       </div>
@@ -137,11 +91,10 @@ export default function AttendanceView() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {detailedRecords.map((item, index) => {
+          {subjects.map((item, index) => {
             const radius = 36;
             const circumference = 2 * Math.PI * radius;
             
-            // If animateRings is true, calculate target offset, otherwise keep it at full circumference (0% filled)
             const strokeDashoffset = animateRings 
               ? circumference - (item.percentage / 100) * circumference 
               : circumference;
@@ -186,10 +139,9 @@ export default function AttendanceView() {
                   <span className="px-2 py-0.5 bg-gray-200/70 text-gray-800 rounded text-[10px] font-mono font-bold">
                     {item.code}
                   </span>
-                  <h4 className="font-bold text-gray-900 text-sm truncate" title={item.name}>{item.name}</h4>
-                  <p className="text-[11px] text-gray-500">Instructor: {item.teacher}</p>
+                  <h4 className="font-bold text-gray-900 text-sm truncate" title={item.subject}>{item.subject}</h4>
                   <p className="text-[10px] text-gray-400 font-medium">
-                    Attended: <strong className="text-gray-700">{item.attended}/{item.delivered}</strong>
+                    Attended: <strong className="text-gray-700">{item.attended}/{item.total}</strong>
                   </p>
                 </div>
 
@@ -202,7 +154,7 @@ export default function AttendanceView() {
       {/* Detailed Table Card */}
       <div className="bg-white rounded-3xl shadow-sm border border-emerald-50 overflow-hidden">
         <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
-          <h3 className="font-bold text-gray-900 text-lg">Detailed Records & Date Ranges</h3>
+          <h3 className="font-bold text-gray-900 text-lg">Detailed Subject Records</h3>
           <span className="text-xs font-semibold px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100">
             Active Term Records
           </span>
@@ -213,8 +165,6 @@ export default function AttendanceView() {
             <thead>
               <tr className="border-b border-gray-100 text-gray-400 text-xs uppercase tracking-wider bg-gray-50/30">
                 <th className="p-4 font-semibold">Course & Subject Name</th>
-                <th className="p-4 font-semibold">Teacher</th>
-                <th className="p-4 font-semibold">Date Range</th>
                 <th className="p-4 font-semibold text-center">Delivered</th>
                 <th className="p-4 font-semibold text-center">Attended</th>
                 <th className="p-4 font-semibold text-center">Absent</th>
@@ -223,33 +173,34 @@ export default function AttendanceView() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-50 text-sm">
-              {detailedRecords.map((item, index) => (
-                <tr key={index} className="hover:bg-emerald-50/20 transition text-gray-700">
-                  <td className="p-4">
-                    <div className="font-bold text-gray-900">{item.name}</div>
-                    <span className="px-2 py-0.5 bg-gray-100 text-gray-700 rounded text-xs font-mono font-semibold">
-                      {item.code}
-                    </span>
-                  </td>
-                  <td className="p-4 text-gray-600 font-medium">{item.teacher}</td>
-                  <td className="p-4 text-xs text-gray-500">{item.dateRange}</td>
-                  <td className="p-4 text-center font-semibold text-gray-800">{item.delivered}</td>
-                  <td className="p-4 text-center font-bold text-emerald-600">{item.attended}</td>
-                  <td className="p-4 text-center font-bold text-rose-500">{item.absent}</td>
-                  <td className="p-4 text-center text-xs font-semibold text-amber-600">
-                    {item.dl} / {item.ml}
-                  </td>
-                  <td className="p-4 text-right">
-                    <span className={`px-3 py-1 rounded-full text-xs font-extrabold ${
-                      item.percentage >= 75 
-                        ? "bg-emerald-50 text-emerald-700 border border-emerald-200" 
-                        : "bg-rose-50 text-rose-700 border border-rose-200"
-                    }`}>
-                      {item.percentage}%
-                    </span>
-                  </td>
-                </tr>
-              ))}
+              {subjects.map((item, index) => {
+                const absentCount = (item.total || 0) - (item.attended || 0);
+                return (
+                  <tr key={index} className="hover:bg-emerald-50/20 transition text-gray-700">
+                    <td className="p-4">
+                      <div className="font-bold text-gray-900">{item.subject}</div>
+                      <span className="px-2 py-0.5 bg-gray-100 text-gray-700 rounded text-xs font-mono font-semibold">
+                        {item.code}
+                      </span>
+                    </td>
+                    <td className="p-4 text-center font-semibold text-gray-800">{item.total}</td>
+                    <td className="p-4 text-center font-bold text-emerald-600">{item.attended}</td>
+                    <td className="p-4 text-center font-bold text-rose-500">{absentCount}</td>
+                    <td className="p-4 text-center text-xs font-semibold text-amber-600">
+                      {item.dl || 0} / {item.ml || 0}
+                    </td>
+                    <td className="p-4 text-right">
+                      <span className={`px-3 py-1 rounded-full text-xs font-extrabold ${
+                        item.percentage >= 75 
+                          ? "bg-emerald-50 text-emerald-700 border border-emerald-200" 
+                          : "bg-rose-50 text-rose-700 border border-rose-200"
+                      }`}>
+                        {item.percentage}%
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

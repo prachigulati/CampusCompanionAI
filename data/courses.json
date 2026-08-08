@@ -1,0 +1,208 @@
+{
+  "courses": {
+    "U001": [
+      {
+        "id": "C101",
+        "title": "Deep Learning & Neural Networks",
+        "instructor": "Dr. Vikas Sharma",
+        "category": "Mandatory",
+        "dueDate": "Aug 20, 2026",
+        "lessonsCount": 8,
+        "progress": 100,
+        "bgColor": "bg-emerald-50/60",
+        "badgeBg": "bg-emerald-100/80"
+      },
+      {
+        "id": "C102",
+        "title": "Natural Language Processing",
+        "instructor": "Dr. Anuj Verma",
+        "category": "Mandatory",
+        "dueDate": "Aug 25, 2026",
+        "lessonsCount": 6,
+        "progress": 75,
+        "bgColor": "bg-orange-50/60",
+        "badgeBg": "bg-orange-100/80"
+      },
+      {
+        "id": "C103",
+        "title": "Big Data Analytics",
+        "instructor": "Prof. Neelam Gupta",
+        "category": "Mandatory",
+        "dueDate": "Sep 02, 2026",
+        "lessonsCount": 10,
+        "progress": 100,
+        "bgColor": "bg-blue-50/60",
+        "badgeBg": "bg-blue-100/80"
+      },
+      {
+        "id": "C104",
+        "title": "Cloud Computing & DevOps",
+        "instructor": "Dr. Rajesh Rao",
+        "category": "Recommended",
+        "dueDate": "Sep 05, 2026",
+        "lessonsCount": 7,
+        "progress": 40,
+        "bgColor": "bg-purple-50/60",
+        "badgeBg": "bg-purple-100/80"
+      },
+      {
+        "id": "C105",
+        "title": "AI Ethics & Governance",
+        "instructor": "Dr. Tanish Mehta",
+        "category": "Mandatory",
+        "dueDate": "Sep 12, 2026",
+        "lessonsCount": 5,
+        "progress": 20,
+        "bgColor": "bg-emerald-50/60",
+        "badgeBg": "bg-emerald-100/80"
+      },
+      {
+        "id": "C106",
+        "title": "Computer Vision & Image Processing",
+        "instructor": "Dr. Ritu Malhotra",
+        "category": "Recommended",
+        "dueDate": "Sep 20, 2026",
+        "lessonsCount": 9,
+        "progress": 10,
+        "bgColor": "bg-amber-50/60",
+        "badgeBg": "bg-amber-100/80"
+      }
+    ],
+    "U002": [
+      {
+        "id": "C101",
+        "title": "Deep Learning & Neural Networks",
+        "instructor": "Dr. Vikas Sharma",
+        "category": "Mandatory",
+        "dueDate": "Aug 20, 2026",
+        "lessonsCount": 8,
+        "progress": 50,
+        "bgColor": "bg-emerald-50/60",
+        "badgeBg": "bg-emerald-100/80"
+      },
+      {
+        "id": "C102",
+        "title": "Natural Language Processing",
+        "instructor": "Dr. Anuj Verma",
+        "category": "Mandatory",
+        "dueDate": "Aug 25, 2026",
+        "lessonsCount": 6,
+        "progress": 100,
+        "bgColor": "bg-orange-50/60",
+        "badgeBg": "bg-orange-100/80"
+      },
+      {
+        "id": "C103",
+        "title": "Big Data Analytics",
+        "instructor": "Prof. Neelam Gupta",
+        "category": "Mandatory",
+        "dueDate": "Sep 02, 2026",
+        "lessonsCount": 10,
+        "progress": 30,
+        "bgColor": "bg-blue-50/60",
+        "badgeBg": "bg-blue-100/80"
+      },
+      {
+        "id": "C104",
+        "title": "Cloud Computing & DevOps",
+        "instructor": "Dr. Rajesh Rao",
+        "category": "Recommended",
+        "dueDate": "Sep 05, 2026",
+        "lessonsCount": 7,
+        "progress": 85,
+        "bgColor": "bg-purple-50/60",
+        "badgeBg": "bg-purple-100/80"
+      },
+      {
+        "id": "C105",
+        "title": "AI Ethics & Governance",
+        "instructor": "Dr. Tanish Mehta",
+        "category": "Mandatory",
+        "dueDate": "Sep 12, 2026",
+        "lessonsCount": 5,
+        "progress": 100,
+        "bgColor": "bg-emerald-50/60",
+        "badgeBg": "bg-emerald-100/80"
+      },
+      {
+        "id": "C106",
+        "title": "Computer Vision & Image Processing",
+        "instructor": "Dr. Ritu Malhotra",
+        "category": "Recommended",
+        "dueDate": "Sep 20, 2026",
+        "lessonsCount": 9,
+        "progress": 45,
+        "bgColor": "bg-amber-50/60",
+        "badgeBg": "bg-amber-100/80"
+      }
+    ],
+    "U003": [
+      {
+        "id": "C101",
+        "title": "Deep Learning & Neural Networks",
+        "instructor": "Dr. Vikas Sharma",
+        "category": "Mandatory",
+        "dueDate": "Aug 20, 2026",
+        "lessonsCount": 8,
+        "progress": 15,
+        "bgColor": "bg-emerald-50/60",
+        "badgeBg": "bg-emerald-100/80"
+      },
+      {
+        "id": "C102",
+        "title": "Natural Language Processing",
+        "instructor": "Dr. Anuj Verma",
+        "category": "Mandatory",
+        "dueDate": "Aug 25, 2026",
+        "lessonsCount": 6,
+        "progress": 90,
+        "bgColor": "bg-orange-50/60",
+        "badgeBg": "bg-orange-100/80"
+      },
+      {
+        "id": "C103",
+        "title": "Big Data Analytics",
+        "instructor": "Prof. Neelam Gupta",
+        "category": "Mandatory",
+        "dueDate": "Sep 02, 2026",
+        "lessonsCount": 10,
+        "progress": 100,
+        "bgColor": "bg-blue-50/60",
+        "badgeBg": "bg-blue-100/80"
+      },
+      {
+        "id": "C104",
+        "title": "Cloud Computing & DevOps",
+        "instructor": "Dr. Rajesh Rao",
+        "category": "Recommended",
+        "dueDate": "Sep 05, 2026",
+        "lessonsCount": 7,
+        "progress": 100,
+        "bgColor": "bg-purple-50/60",
+        "badgeBg": "bg-purple-100/80"
+      },
+      {
+        "id": "C105",
+        "title": "AI Ethics & Governance",
+        "instructor": "Dr. Tanish Mehta",
+        "category": "Mandatory",
+        "dueDate": "Sep 12, 2026",
+        "lessonsCount": 5,
+        "progress": 60,
+        "bgColor": "bg-emerald-50/60",
+        "badgeBg": "bg-emerald-100/80"
+      },
+      {
+        "id": "C106",
+        "title": "Computer Vision & Image Processing",
+        "instructor": "Dr. Ritu Malhotra",
+        "category": "Recommended",
+        "dueDate": "Sep 20, 2026",
+        "lessonsCount": 9,
+        "progress": 80,
+        "bgColor": "bg-amber-50/60",
+        "badgeBg": "bg-amber-100/80"
+      }
+    ]
+  }
+}

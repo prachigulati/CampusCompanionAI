@@ -9,9 +9,33 @@
             "department": "Engineering (AIML)"
         },
         {
+            "user_id": "U002",
+            "name": "Rahul Sharma",
+            "email": "rahul.sharma@gmail.com",
+            "password": "12345",
+            "role": "student",
+            "department": "Engineering (AIML)"
+        },
+        {
+            "user_id": "U003",
+            "name": "Ananya Verma",
+            "email": "ananya.verma@gmail.com",
+            "password": "12345",
+            "role": "student",
+            "department": "Engineering (AIML)"
+        },
+        {
             "user_id": "T001",
             "name": "Dr. Harjeet",
             "email": "harjeet@gmail.com",
+            "password": "12345",
+            "role": "teacher",
+            "department": "Engineering (AIML)"
+        },
+        {
+            "user_id": "T002",
+            "name": "Dr. Neha Kapoor",
+            "email": "neha.kapoor@gmail.com",
             "password": "12345",
             "role": "teacher",
             "department": "Engineering (AIML)"

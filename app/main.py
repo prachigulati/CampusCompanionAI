@@ -57,7 +57,6 @@ def load_users():
             if not content:
                 return {}
             data = json.loads(content)
-            # If users.json is stored as a dictionary mapping user IDs or a list
             if isinstance(data, dict) and "users" in data:
                 if isinstance(data["users"], list):
                     return {u.get("user_id", f"U00{i}"): u for i, u in enumerate(data["users"])}
@@ -171,7 +170,6 @@ def create_leave(req: LeaveRequestPayload):
 def chat_endpoint(req: ChatRequest, x_user_id: str = Header(default="U001")):
     users = load_users()
     
-    # Handle list vs dict structure for user lookup
     current_user = None
     if isinstance(users, dict):
         if x_user_id in users:
@@ -212,12 +210,6 @@ def serve_frontend():
             return f.read()
     return "<h1>Frontend index.html not found!</h1>"
 
-@app.get("/api/attendance/{user_id}")
-def get_attendance(user_id: str):
-    records = load_records()
-    attendance_data = records.get("attendance", {})
-    return attendance_data.get(user_id, [])
-
 class TimelineDocPayload(BaseModel):
     title: str
     category: str
@@ -243,7 +235,6 @@ def add_timeline_doc(doc: TimelineDocPayload):
     records.setdefault("timeline_documents", []).append(new_doc)
     save_records(records)
 
-    # Optionally append this new content directly to your RAG markdown file so the AI can search it instantly!
     doc_path = os.path.join("docs", "policies", "registrar_guidelines.md")
     os.makedirs(os.path.dirname(doc_path), exist_ok=True)
     with open(doc_path, "a", encoding="utf-8") as f:
@@ -251,12 +242,124 @@ def add_timeline_doc(doc: TimelineDocPayload):
 
     return {"status": "success", "data": new_doc}
 
+# Load timetable from data/timetable.json
+def load_timetable():
+    path = os.path.join("data", "timetable.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read().strip()
+    if not content:
+        return {}
+    return json.loads(content)
+
+# Load datewise attendance from data/datewise.json
+def load_datewise_attendance():
+    path = os.path.join("data", "datewise.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read().strip()
+    if not content:
+        return {}
+    return json.loads(content)
+
 @app.get("/api/timetable")
 def get_timetable():
-    records = load_records()
-    return records.get("timetable", {})
+    return load_timetable()
 
 @app.get("/api/datewise-attendance")
-def get_datewise_attendance():
-    records = load_records()
-    return records.get("datewise_attendance", [])
+def get_datewise_attendance(user_id: Optional[str] = None):
+    data = load_datewise_attendance()
+    print(f"DEBUG: Received request for user_id -> {user_id}")
+    
+    # Extract the attendance array safely
+    attendance_list = data.get("attendance", []) if isinstance(data, dict) else data
+    print(f"DEBUG: Total users found in datewise.json -> {len(attendance_list) if isinstance(attendance_list, list) else 'Not a list'}")
+    
+    if isinstance(attendance_list, list):
+        if user_id:
+            # Strip whitespace and match case-insensitively just in case
+            user_entry = next((u for u in attendance_list if str(u.get("user_id", "")).strip().lower() == str(user_id).strip().lower()), None)
+            if user_entry:
+                print(f"DEBUG: Found records for user -> {user_entry.get('name')}")
+                return user_entry.get("records", [])
+            else:
+                print(f"DEBUG: No matching user_id found for '{user_id}'")
+                return []
+        return attendance_list
+        
+    return []
+
+
+def load_attendance_db():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Try looking in the root directory's data folder (one level up from app/)
+    path = os.path.join(base_dir, "..", "data", "attendance.json")
+    
+    if not os.path.exists(path):
+        # Fallback to local app/data/ just in case
+        path = os.path.join(base_dir, "data", "attendance.json")
+        
+    if not os.path.exists(path):
+        print(f"ERROR: attendance.json not found at {path}")
+        return {}
+        
+    print(f"DEBUG: Successfully found attendance.json at -> {path}")
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read().strip()
+    if not content:
+        return {}
+        
+    data = json.loads(content)
+    print(f"DEBUG: Loaded keys -> {list(data.keys())}")
+    return data
+
+@app.get("/api/attendance/{user_id}")
+def get_user_attendance(user_id: str):
+    db = load_attendance_db()
+    
+    # Check if data is wrapped inside an "attendance" key or is flat
+    attendance_map = db.get("attendance", db)
+    
+    print(f"DEBUG: Looking for user_id: {user_id}")
+    print(f"DEBUG: Available keys in map: {list(attendance_map.keys()) if isinstance(attendance_map, dict) else 'Not a dict'}")
+    
+    if isinstance(attendance_map, dict):
+        # Try direct match (e.g. "U001")
+        if user_id in attendance_map:
+            return attendance_map[user_id]
+            
+        # Try case-insensitive or stripped match
+        for key, val in attendance_map.items():
+            if str(key).strip().lower() == str(user_id).strip().lower():
+                return val
+                
+    return {"user_id": user_id, "name": "Student", "subjects": []}
+
+
+# Load courses database
+def load_courses_db():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(base_dir, "..", "data", "courses.json")
+    if not os.path.exists(path):
+        path = os.path.join(base_dir, "data", "courses.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read().strip()
+    return json.loads(content) if content else {}
+
+@app.get("/api/courses/{user_id}")
+def get_user_courses(user_id: str):
+    db = load_courses_db()
+    courses_map = db.get("courses", db)
+    
+    if isinstance(courses_map, dict):
+        user_data = courses_map.get(user_id)
+        if user_data:
+            return user_data
+            
+    # Fallback default courses if user entry doesn't exist
+    return {"user_id": user_id, "courses": []}

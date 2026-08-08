@@ -1,0 +1,159 @@
+{
+"attendance": {
+"U001": {
+    "user_id": "U001",
+    "name": "Prachi Gulati",
+    "subjects": [
+    {
+        "subject": "Deep Learning & Neural Networks",
+        "code": "AIML-301",
+        "attended": 4,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 100.0
+    },
+    {
+        "subject": "Natural Language Processing",
+        "code": "AIML-302",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    },
+    {
+        "subject": "Big Data Analytics",
+        "code": "AIML-303",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    },
+    {
+        "subject": "Cloud Computing & DevOps",
+        "code": "CSE-304",
+        "attended": 2,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 50.0
+    },
+    {
+        "subject": "AI Ethics & Governance",
+        "code": "AIML-305",
+        "attended": 4,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 100.0
+    }
+    ]
+},
+
+"U002": {
+    "user_id": "U002",
+    "name": "Rahul Sharma",
+    "subjects": [
+    {
+        "subject": "Deep Learning & Neural Networks",
+        "code": "AIML-301",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    },
+    {
+        "subject": "Natural Language Processing",
+        "code": "AIML-302",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    },
+    {
+        "subject": "Big Data Analytics",
+        "code": "AIML-303",
+        "attended": 2,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 50.0
+    },
+    {
+        "subject": "Cloud Computing & DevOps",
+        "code": "CSE-304",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    },
+    {
+        "subject": "AI Ethics & Governance",
+        "code": "AIML-305",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    }
+    ]
+},
+
+"U003": {
+    "user_id": "U003",
+    "name": "Ananya Verma",
+    "subjects": [
+    {
+        "subject": "Deep Learning & Neural Networks",
+        "code": "AIML-301",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    },
+    {
+        "subject": "Natural Language Processing",
+        "code": "AIML-302",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    },
+    {
+        "subject": "Big Data Analytics",
+        "code": "AIML-303",
+        "attended": 2,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 50.0
+    },
+    {
+        "subject": "Cloud Computing & DevOps",
+        "code": "CSE-304",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    },
+    {
+        "subject": "AI Ethics & Governance",
+        "code": "AIML-305",
+        "attended": 3,
+        "total": 4,
+        "ml": 0,
+        "dl": 0,
+        "percentage": 75.0
+    }
+    ]
+}
+}
+}

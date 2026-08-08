@@ -1,0 +1,224 @@
+{
+    "Monday": [
+        {
+            "time": "09:00 AM - 10:00 AM",
+            "code": "AIML-301",
+            "subject": "Deep Learning & Neural Networks",
+            "teacher": "Dr. Vikas Sharma",
+            "room": "LT-201"
+        },
+        {
+            "time": "10:00 AM - 11:00 AM",
+            "code": "AIML-302",
+            "subject": "Natural Language Processing",
+            "teacher": "Dr. Anuj Verma",
+            "room": "LT-201"
+        },
+        {
+            "time": "11:15 AM - 12:15 PM",
+            "code": "AIML-303",
+            "subject": "Big Data Analytics",
+            "teacher": "Prof. Neelam Gupta",
+            "room": "LT-201"
+        },
+        {
+            "time": "01:00 PM - 02:00 PM",
+            "code": "BREAK",
+            "subject": "LUNCH BREAK",
+            "teacher": "-",
+            "room": "-"
+        },
+        {
+            "time": "02:00 PM - 03:00 PM",
+            "code": "CSE-304",
+            "subject": "Cloud Computing & DevOps",
+            "teacher": "Dr. Rajesh Rao",
+            "room": "Lab-2"
+        },
+        {
+            "time": "03:00 PM - 04:00 PM",
+            "code": "AIML-305",
+            "subject": "AI Ethics & Governance",
+            "teacher": "Dr. Tanish Mehta",
+            "room": "LT-201"
+        }
+    ],
+    "Tuesday": [
+        {
+            "time": "09:00 AM - 10:00 AM",
+            "code": "AIML-302",
+            "subject": "Natural Language Processing",
+            "teacher": "Dr. Anuj Verma",
+            "room": "LT-201"
+        },
+        {
+            "time": "10:00 AM - 11:00 AM",
+            "code": "AIML-301",
+            "subject": "Deep Learning & Neural Networks",
+            "teacher": "Dr. Vikas Sharma",
+            "room": "LT-201"
+        },
+        {
+            "time": "11:15 AM - 12:15 PM",
+            "code": "CSE-304",
+            "subject": "Cloud Computing & DevOps",
+            "teacher": "Dr. Rajesh Rao",
+            "room": "LT-201"
+        },
+        {
+            "time": "01:00 PM - 02:00 PM",
+            "code": "BREAK",
+            "subject": "LUNCH BREAK",
+            "teacher": "-",
+            "room": "-"
+        },
+        {
+            "time": "02:00 PM - 03:00 PM",
+            "code": "AIML-303",
+            "subject": "Big Data Analytics",
+            "teacher": "Prof. Neelam Gupta",
+            "room": "Lab-1"
+        },
+        {
+            "time": "03:00 PM - 04:00 PM",
+            "code": "AIML-305",
+            "subject": "AI Ethics & Governance",
+            "teacher": "Dr. Tanish Mehta",
+            "room": "LT-201"
+        }
+    ],
+    "Wednesday": [
+        {
+            "time": "09:00 AM - 10:00 AM",
+            "code": "AIML-303",
+            "subject": "Big Data Analytics",
+            "teacher": "Prof. Neelam Gupta",
+            "room": "LT-201"
+        },
+        {
+            "time": "10:00 AM - 11:00 AM",
+            "code": "CSE-304",
+            "subject": "Cloud Computing & DevOps",
+            "teacher": "Dr. Rajesh Rao",
+            "room": "LT-201"
+        },
+        {
+            "time": "11:15 AM - 12:15 PM",
+            "code": "AIML-301",
+            "subject": "Deep Learning & Neural Networks",
+            "teacher": "Dr. Vikas Sharma",
+            "room": "LT-201"
+        },
+        {
+            "time": "01:00 PM - 02:00 PM",
+            "code": "BREAK",
+            "subject": "LUNCH BREAK",
+            "teacher": "-",
+            "room": "-"
+        },
+        {
+            "time": "02:00 PM - 03:00 PM",
+            "code": "AIML-302",
+            "subject": "Natural Language Processing",
+            "teacher": "Dr. Anuj Verma",
+            "room": "Lab-3"
+        },
+        {
+            "time": "03:00 PM - 04:00 PM",
+            "code": "AIML-305",
+            "subject": "AI Ethics & Governance",
+            "teacher": "Dr. Tanish Mehta",
+            "room": "LT-201"
+        }
+    ],
+    "Thursday": [
+        {
+            "time": "09:00 AM - 10:00 AM",
+            "code": "AIML-301",
+            "subject": "Deep Learning & Neural Networks",
+            "teacher": "Dr. Vikas Sharma",
+            "room": "LT-201"
+        },
+        {
+            "time": "10:00 AM - 11:00 AM",
+            "code": "AIML-302",
+            "subject": "Natural Language Processing",
+            "teacher": "Dr. Anuj Verma",
+            "room": "LT-201"
+        },
+        {
+            "time": "11:15 AM - 12:15 PM",
+            "code": "AIML-303",
+            "subject": "Big Data Analytics",
+            "teacher": "Prof. Neelam Gupta",
+            "room": "LT-201"
+        },
+        {
+            "time": "01:00 PM - 02:00 PM",
+            "code": "BREAK",
+            "subject": "LUNCH BREAK",
+            "teacher": "-",
+            "room": "-"
+        },
+        {
+            "time": "02:00 PM - 03:00 PM",
+            "code": "CSE-304",
+            "subject": "Cloud Computing & DevOps",
+            "teacher": "Dr. Rajesh Rao",
+            "room": "LT-201"
+        },
+        {
+            "time": "03:00 PM - 04:00 PM",
+            "code": "AIML-305",
+            "subject": "AI Ethics & Governance",
+            "teacher": "Dr. Tanish Mehta",
+            "room": "LT-201"
+        }
+    ],
+    "Friday": [
+        {
+            "time": "09:00 AM - 10:00 AM",
+            "code": "CSE-304",
+            "subject": "Cloud Computing & DevOps",
+            "teacher": "Dr. Rajesh Rao",
+            "room": "LT-201"
+        },
+        {
+            "time": "10:00 AM - 11:00 AM",
+            "code": "AIML-303",
+            "subject": "Big Data Analytics",
+            "teacher": "Prof. Neelam Gupta",
+            "room": "LT-201"
+        },
+        {
+            "time": "11:15 AM - 12:15 PM",
+            "code": "AIML-302",
+            "subject": "Natural Language Processing",
+            "teacher": "Dr. Anuj Verma",
+            "room": "LT-201"
+        },
+        {
+            "time": "01:00 PM - 02:00 PM",
+            "code": "BREAK",
+            "subject": "LUNCH BREAK",
+            "teacher": "-",
+            "room": "-"
+        },
+        {
+            "time": "02:00 PM - 03:00 PM",
+            "code": "AIML-301",
+            "subject": "Deep Learning & Neural Networks",
+            "teacher": "Dr. Vikas Sharma",
+            "room": "Lab-2"
+        },
+        {
+            "time": "03:00 PM - 04:00 PM",
+            "code": "AIML-305",
+            "subject": "AI Ethics & Governance",
+            "teacher": "Dr. Tanish Mehta",
+            "room": "LT-201"
+        }
+    ],
+    "Saturday": [],
+    "Sunday": []
+}
